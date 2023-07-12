@@ -1,0 +1,98 @@
+﻿@model SignUp;
+<div>
+    <h3>SignUp Page </h3>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Index" asp-controller="Signup">
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label"><b>First Name</b></label>
+                <input asp-for="FirstName" class="form-control">
+                <span asp-validation-for="FirstName" style="color:red;"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label"><b>Last Name</b></label>
+                <input asp-for="LastName" class="form-control">
+                <span asp-validation-for="LastName" style="color:red;"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EmailID" class="form-label"><b>Email address</b></label>
+                <input asp-for="EmailID" class="form-control">
+                <span asp-validation-for="EmailID" style="color:red"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"><b>Password</b></label>
+                <input asp-for="Password" class="form-control">
+                <span asp-validation-for="Password" style="color:red; "></span>
+
+            </div>
+            <input type="submit" value="SignUp" class="btn btn-primary" />
+            <div class="text-center">
+                <p>Already registered? <a href="/Login/Index">Login</a></p>
+            </div>
+        </form>
+    </div>
+    <div>
+        <img style="width:550px;height:350px;margin-left:150px" src="~/image/Signup2.jpg" />
+    </div>
+</div>
+
+
+    <!--
+
+    <h1>SignUp</h1>
+    <hr />
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-action="SignUp">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="form-label">Enter your Username</label>
+                    <input type="text" asp-for="UserName" class="form-control" required />
+
+                </div>-->
+    <!-- Email input -->
+    <!--<div class="form-group">
+        <label class="form-label" for="form2Example1">Email address</label>
+        <input type="email" asp-for="Email" class="form-control" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>-->
+    <!-- Password input -->
+    <!--<div class="form-group">
+        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" asp-for="Password" class="form-control" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="form2Example3">Confirm Password</label>
+        <input type="password" asp-for="ConfirmPassword" class="form-control" required />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+    </div>-->
+    <!-- 2 column grid layout for inline styling -->
+    <!--<div class="row mb-4">
+
+        <div class="col">-->
+    <!-- Simple link -->
+    <!--<a href="#!">Forgot password?</a>
+        </div>
+    </div>-->
+    <!-- Submit button -->
+    <!--<div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary" asp-controller="Account" asp-action="Signup" required />
+    </div>-->
+    <!-- Register buttons -->
+    <!--<div class="text-center">
+                    <p>Already registered? <a href="/Account/Login">Login</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <img style="width:550px;height:350px;margin-left:150px" src="~/image/Signup2.jpg" />
+        </div>
+
+    </div>-->
+

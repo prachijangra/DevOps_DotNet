@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "_LayoutEvent";
+}
+<div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px">
+    <div style="width: 1240px;">
+        <h3 class="display-4" style="text-align:center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">My Events</h3>
+        <div style="display:flex; gap:20px; flex-wrap: wrap; margin-top:20px">
+            @foreach (var e in ViewBag.MyEvents)
+            {
+                <a asp-action="Index" asp-controller="GetEvent" asp-route-id="@e.EventId" asp-route-name="MyEvent">
+                    <div class="card shadow-lg" style="min-width: 200px; margin-bottom: 6px; float: left; margin-right: 6px; padding:12px; background-color:bisque; border-radius:10px">
+
+                        <h5 class="card-title">@e.Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Description :</b> @e.Description</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Date :</b> @e.Date.ToShortDateString()</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Duration :</b> @e.Duration</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Location :</b> @e.Location</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>StartTime :</b> @e.StartTime</h6>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

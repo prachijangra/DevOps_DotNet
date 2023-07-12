@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_LayoutEvent";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 style="text-align:center;margin-top:5px" ><b>UpComing Events</b> </h3>
+            @foreach (var e in ViewBag.UpcomingEvents)
+            {
+                <a asp-action="Index" asp-controller="GetEvent" asp-route-id="@e.EventId">
+                    <div class="card shadow-lg" style="width: 50%; margin-top: 6px; margin-bottom: 6px; align-items: center; margin-right: 6px; margin-left: 6px; background-color: bisque; border-radius: 10px">
+                        <div class="card-body">
+                            <h5 class="card-title">@e.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Description :</b>@e.Description</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Date :</b>@e.Date.ToShortDateString()</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Duration :</b>@e.Duration</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Location :</b>@e.Location</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>StartTime :</b>@e.StartTime</h6>
+
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+        <div class="col-6">
+            <h3 style="text-align:center;margin-top:5px"><b>Past Events </b></h3>
+            @foreach (var e in ViewBag.PastEvents)
+            {
+                <a asp-action="Index" asp-controller="GetEvent" asp-route-id="@e.EventId">
+                    <div class="card shadow-lg" style="width: 50%; margin-bottom: 6px; margin-top: 6px; float: left; margin-right: 6px; margin-left: 6px; background-color: bisque;border-radius:10px ">
+                        <div class="card-body">
+                            <h5 class="card-title">@e.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Description :</b>@e.Description</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Date :</b>@e.Date.ToShortDateString()</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Duration :</b>@e.Duration</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>Location :</b>@e.Location</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><b>StartTime :</b>@e.StartTime</h6>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

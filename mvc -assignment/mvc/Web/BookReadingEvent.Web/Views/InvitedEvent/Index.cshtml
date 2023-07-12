@@ -1,0 +1,32 @@
+﻿@model Event;
+@{ 
+    Layout = "_LayoutEvent";
+}
+<h3 class="display-4" style="text-align:center">Invited Events</h3>
+<hr/>
+<div>
+    @if (ViewBag.AllEvents.Count != 0)
+    {
+        @foreach (var e in ViewBag.AllEvents)
+        {
+            <a asp-action="Index" asp-controller="GetEvent" asp-route-id="@e.EventId" asp-route-name="IE">
+                <div class="card shadow-lg" style="width: 300px; margin-bottom: 6px; float: left; margin-right: 6px; margin-left:6px; padding:3px; background-color:bisque; border-radius:10px">
+                    <div class="card-body">
+                        <h5 class="card-title">@e.Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Description :</b>@e.Description</h6>
+
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Date :</b>@e.Date.ToShortDateString()</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Duration :</b>@e.Duration</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Location :</b>@e.Location</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>StartTime :</b>@e.StartTime</h6>
+                    </div>
+
+                </div>
+            </a>
+        }
+    }
+    else
+    {
+        <h4 style="text-align:center;color:lightgray;">No notifications to display</h4>
+    }
+</div>

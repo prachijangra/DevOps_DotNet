@@ -1,0 +1,87 @@
+﻿@model Event;
+
+
+    @{
+        if (ViewBag.checkLayout == "Home")
+        {
+            Layout = "_Layout";
+        }
+        else
+        {
+
+            Layout = "_LayoutEvent";
+        }
+    }
+    <h3 class="display-4 " style="text-align:center">Event Details</h3>
+    <hr />
+    <div class="card border shadow mx-1 mx-auto" style="width: 18rem; background-color: #ffe6f0">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Description :</b>@Model.Description </h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Date :</b>@Model.Date.ToShortDateString() </h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Duration :</b>@Model.Duration</h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Location :</b>@Model.Location</h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>StartTime :</b>@Model.StartTime</h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>OtherDetails :</b>@Model.OtherDetails</h6>
+            <h6 class="card-subtitle mb-2 text-muted"><b>CreatedBy :</b>@Model.Creator</h6>
+        </div>
+    </div>
+
+    <div>
+        @if (ViewBag.emailId != null && ViewBag.check == "MyEvent")
+        {
+            <a asp-controller="UpdateEvent" asp-action="Index" class="btn btn-outline-primary" style="margin-left:20px;" asp-route-id="@Model.EventId">Update</a>
+            <a asp-action="DeleteByEventId" asp-controller="GetEvent" asp-route-id="@Model.EventId" class="btn btn-outline-warning">Delete</a>
+        }
+    </div>
+
+    @if (ViewBag.emailId != null)
+    {
+
+        <a asp-action="Index" class="btn btn-outline-success" style="margin-left:20px;margin-top:30px;" asp-controller="Comment" asp-route-id="@Model.EventId">Add Comment</a>
+      }
+   
+
+@if (true)
+{
+
+    <div class="row d-flex my-5 ">
+        <div class="col-md-12 col-lg-6">
+            
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var comment in ViewBag.Comments)
+                        {
+                            <div class="card mb-4">
+                                <div class="card-body" style="width: 525px; height: 170px; overflow:auto">
+                                    <div class="row">
+                                        <div class="col-md-3 ">
+                                            <img class="rounded-circle shadow-3-strong me-3"
+                                                 src="https://www.allthetests.com/quiz22/picture/pic_1171831236_1.png" alt="avatar" width="65"
+                                                 height="65" />
+                                            <h6 class="fw-bold text-primary mb-1">@comment.Email</h6>
+                                        </div>
+                                        <div class="col-md-9" style="background-color: #d8d9da;">
+                                            <p>
+                                                @comment.Comment1
+                                            </p>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+}
+else
+{
+    <h6 class="my-5">No Comments available for this event.</h6>
+}
+
+
